@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mostafa_test/binding/dashboard_binding.dart';
 import 'package:mostafa_test/pages/dashboard_page.dart';
 
 
@@ -17,7 +18,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyDashBoard(),
+      initialRoute: "/",
+      getPages: [
+        GetPage(name: "/", page: ()=> const MyDashBoard(),
+        binding: DashBoardBinding()),
+
+      ],
     );
   }
 }
