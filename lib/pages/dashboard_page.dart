@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:mostafa_test/navigation/custom_navigation.dart';
+import 'package:mostafa_test/pages/image_page.dart';
+import 'package:mostafa_test/pages/login_page.dart';
+import 'package:mostafa_test/pages/news_page.dart';
 
 class MyDashBoard extends StatefulWidget {
+  const MyDashBoard({Key? key}) : super(key: key);
+
 
   @override
   _MyDashBoardState createState() => _MyDashBoardState();
@@ -55,13 +60,6 @@ class _MyDashBoardState extends State<MyDashBoard> {
           inactiveColor: _inactiveColor,
           textAlign: TextAlign.center,
         ),
-        // BottomNavyBarItem(
-        //   icon: Icon(Icons.settings),
-        //   title: Text('Settings'),
-        //   activeColor: Colors.blue,
-        //   inactiveColor: _inactiveColor,
-        //   textAlign: TextAlign.center,
-        // ),
       ],
     );
   }
@@ -69,10 +67,9 @@ class _MyDashBoardState extends State<MyDashBoard> {
 
   Widget getBody() {
     List<Widget> pages = [
-      // HomePage(),
-      // UsersPage(),
-      // MessagesPage(),
-      // AddPage(),
+      const NewsPage(),
+      const ImagePage(),
+      const LogInPage(),
     ];
     return IndexedStack(
       index: _currentIndex,
