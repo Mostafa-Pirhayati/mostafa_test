@@ -49,7 +49,7 @@ class _MyDashBoardState extends State<MyDashBoard> {
                 textAlign: TextAlign.center,
               ),
               BottomNavyBarItem(
-                icon: const Icon(Icons.camera),
+                icon: const Icon(Icons.add_a_photo),
                 title: const Text('Image'),
                 activeColor: Colors.red,
                 inactiveColor: _inactiveColor,
