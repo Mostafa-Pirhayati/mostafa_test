@@ -8,15 +8,15 @@ class newsListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Obx((){
-      if(newsCtrl.isLoading.value) {
+    return Obx(() {
+      if (newsCtrl.isLoading.value) {
         return const Center(
           child: CircularProgressIndicator(),
         );
       } else {
         return ListView.builder(
             itemCount: newsCtrl.newsList.length,
-            itemBuilder: (context, index){
+            itemBuilder: (context, index) {
               return Column(
                 children: <Widget>[
                   Row(
@@ -37,30 +37,28 @@ class newsListView extends StatelessWidget {
                       // ),
                       Flexible(
                           child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                newsCtrl.newsList[index].status,
-                                style: const TextStyle(fontSize: 18),
-                              ),
-                              Text(
-                                newsCtrl.newsList[index].source,
-                                style: const TextStyle(fontSize: 18),
-                              ),
-                              Text(
-                                newsCtrl.newsList[index].sortBy,
-                                style: const TextStyle(fontSize: 18),
-                              ),
-                            ],
-                          )
-                      ),
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            newsCtrl.newsList[index].status,
+                            style: const TextStyle(fontSize: 18),
+                          ),
+                          Text(
+                            newsCtrl.newsList[index].source,
+                            style: const TextStyle(fontSize: 18),
+                          ),
+                          Text(
+                            newsCtrl.newsList[index].sortBy,
+                            style: const TextStyle(fontSize: 18),
+                          ),
+                        ],
+                      )),
                     ],
                   )
                 ],
               );
-            }
-        );
+            });
       }
     });
   }

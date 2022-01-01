@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 // To parse this JSON data, do
 //
 //     final newsModel = newsModelFromJson(jsonString);
@@ -23,18 +24,19 @@ class NewsModel {
   List<Article> articles;
 
   factory NewsModel.fromJson(Map<String, dynamic> json) => NewsModel(
-    status: json["status"],
-    source: json["source"],
-    sortBy: json["sortBy"],
-    articles: List<Article>.from(json["articles"].map((x) => Article.fromJson(x))),
-  );
+        status: json["status"],
+        source: json["source"],
+        sortBy: json["sortBy"],
+        articles: List<Article>.from(
+            json["articles"].map((x) => Article.fromJson(x))),
+      );
 
   Map<String, dynamic> toJson() => {
-    "status": status,
-    "source": source,
-    "sortBy": sortBy,
-    "articles": List<dynamic>.from(articles.map((x) => x.toJson())),
-  };
+        "status": status,
+        "source": source,
+        "sortBy": sortBy,
+        "articles": List<dynamic>.from(articles.map((x) => x.toJson())),
+      };
 }
 
 class Article {
@@ -53,18 +55,18 @@ class Article {
   String urlToImage;
 
   factory Article.fromJson(Map<String, dynamic> json) => Article(
-    author: json["author"] == null ? null : json["author"],
-    title: json["title"],
-    description: json["description"],
-    url: json["url"],
-    urlToImage: json["urlToImage"],
-  );
+        author: json["author"] == null ? null : json["author"],
+        title: json["title"],
+        description: json["description"],
+        url: json["url"],
+        urlToImage: json["urlToImage"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "author": author == null ? null : author,
-    "title": title,
-    "description": description,
-    "url": url,
-    "urlToImage": urlToImage,
-  };
+        "author": author == null ? null : author,
+        "title": title,
+        "description": description,
+        "url": url,
+        "urlToImage": urlToImage,
+      };
 }

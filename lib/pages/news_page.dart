@@ -4,6 +4,7 @@ import 'package:mostafa_test/http/view/news_list_view.dart';
 import 'package:mostafa_test/pages_controllers/news_controller.dart';
 
 final NewsCtrl newsCtrl = Get.put(NewsCtrl());
+
 class NewsPage extends GetView<NewsCtrl> {
   const NewsPage({Key? key}) : super(key: key);
 
@@ -12,18 +13,18 @@ class NewsPage extends GetView<NewsCtrl> {
     return Scaffold(
       appBar: AppBar(
         title: Text(controller.title),
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.pinkAccent,
         centerTitle: true,
       ),
-      body:Obx((){
-        if(newsCtrl.isLoading.value) {
+      body: Obx(() {
+        if (newsCtrl.isLoading.value) {
           return const Center(
             child: CircularProgressIndicator(),
           );
         } else {
           return ListView.builder(
               itemCount: newsCtrl.newsList.length,
-              itemBuilder: (context, index){
+              itemBuilder: (context, index) {
                 return Column(
                   children: <Widget>[
                     Row(
@@ -44,30 +45,28 @@ class NewsPage extends GetView<NewsCtrl> {
                         // ),
                         Flexible(
                             child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  newsCtrl.newsList[index].status,
-                                  style: const TextStyle(fontSize: 18),
-                                ),
-                                Text(
-                                  newsCtrl.newsList[index].source,
-                                  style: const TextStyle(fontSize: 18),
-                                ),
-                                Text(
-                                  newsCtrl.newsList[index].sortBy,
-                                  style: const TextStyle(fontSize: 18),
-                                ),
-                              ],
-                            )
-                        ),
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              newsCtrl.newsList[index].status,
+                              style: const TextStyle(fontSize: 18),
+                            ),
+                            Text(
+                              newsCtrl.newsList[index].source,
+                              style: const TextStyle(fontSize: 18),
+                            ),
+                            Text(
+                              newsCtrl.newsList[index].sortBy,
+                              style: const TextStyle(fontSize: 18),
+                            ),
+                          ],
+                        )),
                       ],
                     )
                   ],
                 );
-              }
-          );
+              });
         }
       }),
     );

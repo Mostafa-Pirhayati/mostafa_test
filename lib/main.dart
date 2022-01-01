@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:mostafa_test/binding/dashboard_binding.dart';
 import 'package:mostafa_test/pages/dashboard_page.dart';
 
-
 void main() {
   runApp(MyApp());
 }
@@ -20,9 +19,10 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: "/",
       getPages: [
-        GetPage(name: "/", page: ()=> const MyDashBoard(),
-        binding: DashBoardBinding()),
-
+        GetPage(
+            name: "/",
+            page: () => const MyDashBoard(),
+            binding: DashBoardBinding()),
       ],
     );
   }

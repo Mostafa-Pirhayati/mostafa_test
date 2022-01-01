@@ -44,7 +44,7 @@ class _MyDashBoardState extends State<MyDashBoard> {
               BottomNavyBarItem(
                 icon: const Icon(Icons.message),
                 title: const Text('News'),
-                activeColor: Colors.blue,
+                activeColor: Colors.pinkAccent,
                 inactiveColor: _inactiveColor,
                 textAlign: TextAlign.center,
               ),
@@ -58,7 +58,7 @@ class _MyDashBoardState extends State<MyDashBoard> {
               BottomNavyBarItem(
                 icon: const Icon(Icons.login),
                 title: const Text('Login'),
-                activeColor: Colors.green,
+                activeColor: Colors.blue,
                 inactiveColor: _inactiveColor,
                 textAlign: TextAlign.center,
               ),

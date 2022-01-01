@@ -30,10 +30,10 @@ class ImagePage extends GetView<ImageCtrl> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Obx(()=> controller.selectedImagePath.value ==''?
-                const Text('please select an Image', style: TextStyle(fontSize: 15))
-                :Image.file(File(controller.selectedImagePath.value))
-            ),
+            Obx(() => controller.selectedImagePath.value == ''
+                ? const Text('please select an Image',
+                    style: TextStyle(fontSize: 15))
+                : Image.file(File(controller.selectedImagePath.value))),
           ],
         ),
       ),
