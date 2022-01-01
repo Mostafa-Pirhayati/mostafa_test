@@ -24,17 +24,26 @@ class ImagePage extends GetView<ImageCtrl> {
         backgroundColor: Colors.red,
         child: const Icon(Icons.add_a_photo),
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(10.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Obx(() => controller.selectedImagePath.value == ''
-                ? const Text('please select an Image',
-                    style: TextStyle(fontSize: 15))
-                : Image.file(File(controller.selectedImagePath.value))),
-          ],
+      body: Center(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(15.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Obx(() => controller.selectedImagePath.value == ''
+                  ? const Center(
+                    child: Text(
+                        '  PLEASE CHOOSE AN IMAGE   ',
+                        style: TextStyle(fontSize: 20,
+                          color: Colors.white,
+                          backgroundColor: Colors.red,
+                        ),
+                      ),
+                  )
+                  : Image.file(File(controller.selectedImagePath.value))),
+            ],
+          ),
         ),
       ),
     );
