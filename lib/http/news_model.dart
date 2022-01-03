@@ -1,37 +1,66 @@
 class NewsModel {
-  String? author;
-  String? title;
-  String? description;
-  String? url;
-  String? urlToImage;
-  String? publishedAt;
+  NewsModel({
+    required this.status,
+    required this.source,
+    required this.sortBy,
+    required this.articles,
+  });
+  late final String status;
+  late final String source;
+  late final String sortBy;
+  late final List<Articles> articles;
 
-  NewsModel(
-      {this.author,
-        this.title,
-        this.description,
-        this.url,
-        this.urlToImage,
-        this.publishedAt});
+  NewsModel.fromJson(Map<String, dynamic> json){
+    status = json['status'];
+    source = json['source'];
+    sortBy = json['sortBy'];
+    articles = List.from(json['articles']).map((e)=>Articles.fromJson(e)).toList();
+  }
 
-  NewsModel.fromJson(Map<String, dynamic> json) {
-    author = json['author'];
+  Map<String, dynamic> toJson() {
+    final _data = <String, dynamic>{};
+    _data['status'] = status;
+    _data['source'] = source;
+    _data['sortBy'] = sortBy;
+    _data['articles'] = articles.map((e)=>e.toJson()).toList();
+    return _data;
+  }
+}
+
+class Articles {
+  Articles({
+    this.author,
+    required this.title,
+    required this.description,
+    required this.url,
+    required this.urlToImage,
+    this.publishedAt,
+  });
+  late final String? author;
+  late final String? title;
+  late final String? description;
+  late final String? url;
+  late final String? urlToImage;
+  late final String? publishedAt;
+
+  Articles.fromJson(Map<String, dynamic> json){
+    author = null;
     title = json['title'];
     description = json['description'];
     url = json['url'];
     urlToImage = json['urlToImage'];
-    publishedAt = json['publishedAt'];
+    publishedAt = null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['author'] = this.author;
-    data['title'] = this.title;
-    data['description'] = this.description;
-    data['url'] = this.url;
-    data['urlToImage'] = this.urlToImage;
-    data['publishedAt'] = this.publishedAt;
-    return data;
+    final _data = <String, dynamic>{};
+    _data['author'] = author;
+    _data['title'] = title;
+    _data['description'] = description;
+    _data['url'] = url;
+    _data['urlToImage'] = urlToImage;
+    _data['publishedAt'] = publishedAt;
+    return _data;
   }
-}
 
+}

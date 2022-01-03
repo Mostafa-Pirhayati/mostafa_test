@@ -13,7 +13,7 @@ class ImagePage extends GetView<ImageCtrl> {
     return Scaffold(
       appBar: AppBar(
         title: Text(controller.title),
-        backgroundColor: Colors.red,
+        backgroundColor: controller.color,
         centerTitle: true,
       ),
       floatingActionButton: FloatingActionButton(

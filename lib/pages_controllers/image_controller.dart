@@ -4,6 +4,7 @@ import 'package:image_picker/image_picker.dart';
 
 class ImageCtrl extends GetxController{
   final String title = 'Image';
+  final Color color = Colors.red;
   var selectedImagePath = ''.obs;
 
   void getImage(ImageSource imageSource) async{

@@ -10,7 +10,7 @@ class LogInPage extends GetView<LogInCtrl> {
     return Scaffold(
       appBar: AppBar(
         title: Text(controller.title),
-        backgroundColor: Colors.blue,
+        backgroundColor: controller.color,
         centerTitle: true,
       ),
       body: LoginDemo(),
